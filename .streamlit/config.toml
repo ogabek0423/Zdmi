@@ -1,0 +1,14 @@
+[theme]
+primaryColor = "#FF6B6B"
+backgroundColor = "#0f172a"
+secondaryBackgroundColor = "#1A1F2E"
+textColor = "#FAFAFA"
+
+[theme.chart]
+categoricalColors = ["#FF6B6B", "#4ECDC4", "#45B7D1", "#96CEB4", "#FFEEAD"]
+
+[client]
+toolbarMode = "viewer"
+
+[ui]
+hideTopBar = true
