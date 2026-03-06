@@ -14,4 +14,6 @@ COPY . .
 
 EXPOSE 8501
 
+CMD ["python", "utils.py"]
+
 CMD ["streamlit", "run", "🏠_Home.py", "--server.port=8501", "--server.address=0.0.0.0"]
