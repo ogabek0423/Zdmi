@@ -33,9 +33,6 @@ st.logo(
 )
 st.title("Real vaqtda obyektni aniqlash")
 st.markdown("Kamera / Rasm / Video rejimlaridan birini tanlang")
-
-# st.set_page_config(page_title="Object Detection System", layout="wide")
-# st.title("Real-time Object Detection System")
 st.markdown("YOLOv8 asosida rasm, video va kamera orqali obyekt aniqlash tizimi")
 
 
@@ -162,51 +159,34 @@ if mode == "Camera":
 # IMAGE MODE
 # =========================
 if mode == "Image":
-
     uploaded_file = st.file_uploader(
         "Rasm yuklang",
         type=["jpg","png","jpeg"]
     )
-
     if uploaded_file is not None:
-
         file_bytes = uploaded_file.read()
-
         image = cv2.imdecode(
             np.frombuffer(file_bytes,np.uint8),
             cv2.IMREAD_COLOR
         )
-
         start = time.time()
-
         results = model(image, conf=conf, verbose=False)
-
         end = time.time()
-
         class_list = []
-
         for box in results[0].boxes:
-
             cls_id = int(box.cls[0])
             cls_name = names[cls_id]
-
             if selected_classes and cls_name not in selected_classes:
                 continue
-
             class_list.append(cls_name)
-
         counts = Counter(class_list)
-
         annotated = results[0].plot()
-
         st.image(
             annotated,
             channels="BGR",
             width="stretch"
         )
-
         st.subheader("Statistik natija")
-
         st.write("Ishlash vaqti:", round(end-start,3),"sekund")
 
         st.write("Jami obyekt:", sum(counts.values()))

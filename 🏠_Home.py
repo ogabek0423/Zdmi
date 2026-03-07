@@ -1,6 +1,6 @@
 import streamlit as st
 
-# Sahifa sozlamalari
+
 st.set_page_config(
     page_title="AI Vision Pro — YOLOv8 Obyekt Aniqlash",
     page_icon="🔍",
@@ -8,7 +8,7 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 
-# CSS (dizayn uchun)
+
 st.markdown("""
     <style>
     @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
